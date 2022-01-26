@@ -7,6 +7,7 @@ import RecordsList from './BasicList';
 import BillingList from "./BillingList";
 
 function App() {
+const [selectedList, setSelectedList] = useState('');
 
   return (
     <div className="App">
@@ -25,8 +26,22 @@ function App() {
           ok
         </a> */}
       </header>
-        <RecordsList />
-        <BillingList />
+      {/* <label>
+        <input type="checkbox" checked={selectedList === 'Basic'} onChange={e => e.target.checked ? setSelectedList('Basic'): console.log(e, 'uncheck')}/>
+        <span>Basic Product List</span>
+      </label>
+      <label>
+        <input type="checkbox" checked={selectedList === 'Billing'} onChange={e => e.target.checked ? setSelectedList('Billing'):console.log(e, 'uncheck')}/>
+        <span>Billing List</span>
+      </label> */}
+      <button onClick={e => setSelectedList('Basic')} className={selectedList === 'Basic'? 'selected':'' }>
+        <span>Basic Product List</span>
+      </button>
+      <button onClick={e => setSelectedList('Billing')} className={selectedList === 'Billing'? 'selected':'' }>
+        <span>Billing Product List</span>
+      </button>
+        {selectedList === 'Basic' && <RecordsList />}
+        {selectedList === 'Billing' && <BillingList />}
     </div>
   );
 }
