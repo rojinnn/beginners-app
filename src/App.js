@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Particular from "./ParticularItem";
-import { sampleRecords  } from "./constants";
-import RecordsList from './BasicList';
+import { sampleRecords } from "./constants";
+import RecordsList from "./BasicList";
 import BillingList from "./BillingList";
 
 function App() {
-const [selectedList, setSelectedList] = useState('');
+  const [selectedList, setSelectedList] = useState("");
 
   return (
     <div className="App">
@@ -34,14 +34,30 @@ const [selectedList, setSelectedList] = useState('');
         <input type="checkbox" checked={selectedList === 'Billing'} onChange={e => e.target.checked ? setSelectedList('Billing'):console.log(e, 'uncheck')}/>
         <span>Billing List</span>
       </label> */}
-      <button onClick={e => setSelectedList('Basic')} className={selectedList === 'Basic'? 'selected':'' }>
-        <span>Basic Product List</span>
-      </button>
-      <button onClick={e => setSelectedList('Billing')} className={selectedList === 'Billing'? 'selected':'' }>
-        <span>Billing Product List</span>
-      </button>
-        {selectedList === 'Basic' && <RecordsList />}
-        {selectedList === 'Billing' && <BillingList />}
+      <div className="main-container">
+        <div className="options-container">
+          <div className="option">
+            <button
+              onClick={(e) => setSelectedList("Basic")}
+              className={selectedList === "Basic" ? "selected" : ""}
+            >
+              <span>Basic Product List</span>
+            </button>
+          </div>
+          <div className="option">
+            <button
+              onClick={(e) => setSelectedList("Billing")}
+              className={selectedList === "Billing" ? "selected" : ""}
+            >
+              <span>Billing Product List</span>
+            </button>
+          </div>
+        </div>
+        <div className="pages-container">
+          {selectedList === "Basic" && <RecordsList />}
+          {selectedList === "Billing" && <BillingList />}
+        </div>
+      </div>
     </div>
   );
 }

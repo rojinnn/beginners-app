@@ -2,6 +2,12 @@
   text-align: center;
   background-color: rgb(199, 209, 197);
   min-height: 100vh;
+  /* display: flex; */
+  /* flex */
+}
+
+.main-container {
+  display: flex;
 }
 
 .App-logo {
@@ -86,6 +92,46 @@
 .selected {
   background-color: #40495c;
   color: "#ffffff";
+  /* margin: 5px; */
+}
+
+.selected span {
+  /* padding: 10px; */
+
+  border-bottom: 1px solid #282c34;
+}
+
+.options-container {
+  padding: 20px;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  background-color: #7773b1;
+  min-height: 100vh;
+  /* justify-content: space-between; */
+}
+
+.options-container .option {
+  margin: 10px 0;
+}
+
+.option button {
+  border-radius: 10px;
+}
+.option span {
+  font-size: 16px;
+  color: #2e63d1;
+}
+
+.option button:hover {
+  background-color: #00fa00;
+  box-shadow: 3px 3px 4px 2px #77de777d;
+  transition: all 1s;
+}
+
+.pages-container {
+  width: 90%;
+  margin-top: 10vh;
 }
 
 @keyframes App-logo-spin {

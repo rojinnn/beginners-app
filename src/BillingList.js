@@ -60,8 +60,7 @@ function Billinglist() {
   // console.log(entry,"test-entry");
 
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <div className="billing-list">
       <div className="records-container">
         {entry.map((en) => (
           <div key={en.product?.id} className="record">
